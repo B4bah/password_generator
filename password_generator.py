@@ -1,6 +1,9 @@
 import random
+import os
 
-alphabet = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&*+,-./:;<=>?@\^_~'
+title = input('Enter the title for the password:\n>>> ')
+
+alphabet = 'abcdefghijklmnopqrstuvwxzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$%&*+,-./:;<=>?@_~'
 
 length = int(input('Enter the password length:\n>>> '))
 password = ''
@@ -8,4 +11,7 @@ password = ''
 for i in range(length):
     password += random.choice(alphabet)
 
-print(password)
+with open(f'C:/Files/Main Passwords/{title}.txt', 'w') as file:
+    file.write(password)
+
+os.startfile(f'C:/Files/Main Passwords/{title}.txt')
